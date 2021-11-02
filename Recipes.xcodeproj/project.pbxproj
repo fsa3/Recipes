@@ -17,6 +17,7 @@
 		3E2F2D7E27301B3C004E9DFA /* Menubar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2D7D27301B3C004E9DFA /* Menubar.swift */; };
 		3E2F2D8027301B4E004E9DFA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2D7F27301B4E004E9DFA /* CardView.swift */; };
 		3E2F2D8227301B7F004E9DFA /* ViewRecipeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2D8127301B7F004E9DFA /* ViewRecipeScreen.swift */; };
+		C1A852802731802200A791CD /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A8527F2731802200A791CD /* AddButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		3E2F2D7D27301B3C004E9DFA /* Menubar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menubar.swift; sourceTree = "<group>"; };
 		3E2F2D7F27301B4E004E9DFA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		3E2F2D8127301B7F004E9DFA /* ViewRecipeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRecipeScreen.swift; sourceTree = "<group>"; };
+		C1A8527F2731802200A791CD /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				3E2F2D7D27301B3C004E9DFA /* Menubar.swift */,
 				3E2F2D7F27301B4E004E9DFA /* CardView.swift */,
 				3E2F2D8127301B7F004E9DFA /* ViewRecipeScreen.swift */,
+				C1A8527F2731802200A791CD /* AddButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				3E2F2D8227301B7F004E9DFA /* ViewRecipeScreen.swift in Sources */,
 				3E2F2D7827301B17004E9DFA /* HomeScreen.swift in Sources */,
 				3E2F2D7A27301B24004E9DFA /* SearchScreenView.swift in Sources */,
+				C1A852802731802200A791CD /* AddButtonView.swift in Sources */,
 				3E2F2D7C27301B33004E9DFA /* LibraryScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

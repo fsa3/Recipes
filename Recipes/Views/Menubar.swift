@@ -11,8 +11,12 @@
 import SwiftUI
 
 struct Menubar: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        }
+    
     var body: some View {
-        /* MenuBar View */
+        
         TabView {
             ContentView()
                 .tabItem {
@@ -29,7 +33,7 @@ struct Menubar: View {
                     Label("My Recipes", systemImage: "menucard")
                 }
         }
-        
+    
     }
     
 }
