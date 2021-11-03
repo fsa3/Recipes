@@ -15,7 +15,38 @@ struct Menubar: View {
         UITabBar.appearance().backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         }
     
+    @State private var searchstring: String = ""
+    
     var body: some View {
+        
+        VStack {
+            Spacer()
+            VStack {
+                HStack {
+                    TextField( " Search for a recipe", text: $searchstring)
+                        .multilineTextAlignment(.leading)
+                        .frame(height: 40)
+                        .border(.secondary)
+                        .padding()
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                            Image(systemName: "plus").foregroundColor(.white)
+                        }
+                        .padding(9.0)
+                        .background(.green)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white))
+                        .shadow(radius: 2)
+                    .controlSize(/*@START_MENU_TOKEN@*/.large/*@END_MENU_TOKEN@*/)
+                    }
+                    .padding()
+                }
+            }
+            .padding()
+        
         
         TabView {
             ContentView()
@@ -32,6 +63,7 @@ struct Menubar: View {
                 .tabItem {
                     Label("My Recipes", systemImage: "menucard")
                 }
+        }
         }
     
     }
