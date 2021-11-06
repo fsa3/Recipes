@@ -59,7 +59,7 @@ struct Menubar: View {
                     Label("Search", systemImage: "magnifyingglass")
                 }
             
-            ViewRecipeScreen()
+            LibraryScreen()
                 .tabItem {
                     Label("My Recipes", systemImage: "menucard")
                 }
