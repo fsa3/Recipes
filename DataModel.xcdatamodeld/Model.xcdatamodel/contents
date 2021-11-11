@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="IngredientRecipe" representedClassName="IngredientRecipe" syncable="YES" codeGenerationType="class">
+        <attribute name="in_fk" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="re_fk" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ingredients_fk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredients"/>
+        <relationship name="recipies_fk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipes"/>
+    </entity>
+    <entity name="Ingredients" representedClassName="Ingredients" syncable="YES" codeGenerationType="class">
+        <attribute name="ingredient" optional="YES" attributeType="String"/>
+        <attribute name="ingredient_pk" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Recipes" representedClassName="Recipes" syncable="YES" codeGenerationType="class">
+        <attribute name="method" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="recipes_pk" transient="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Recipes" positionX="184.35546875" positionY="345.375" width="128" height="74"/>
+        <element name="Ingredients" positionX="-3.40625" positionY="427.984375" width="128" height="59"/>
+        <element name="IngredientRecipe" positionX="123.2578125" positionY="165.01953125" width="128" height="89"/>
+    </elements>
+</model>
