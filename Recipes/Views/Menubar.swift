@@ -30,24 +30,14 @@ struct Menubar: View {
                         .padding()
                     
                     Spacer()
-                    
                     HStack {
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                            Image(systemName: "plus").foregroundColor(.white)
-                        }
-                        .padding(9.0)
-                        .background(.green)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white))
-                        .shadow(radius: 2)
-                    .controlSize(/*@START_MENU_TOKEN@*/.large/*@END_MENU_TOKEN@*/)
+                        
                     }
-                    .padding()
                 }
             }
             .padding()
-        
-        
+            
+            
         TabView {
             ContentView()
                 .tabItem {
@@ -62,6 +52,10 @@ struct Menubar: View {
             LibraryScreen()
                 .tabItem {
                     Label("My Recipes", systemImage: "menucard")
+                }
+            AddRecipes()
+                .tabItem {
+                    Label("New Recipe", systemImage: "plus")
                 }
         }
         }
