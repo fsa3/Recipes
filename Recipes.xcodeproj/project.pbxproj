@@ -20,6 +20,7 @@
 		3EB17A9827358986001D5416 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB17A9727358986001D5416 /* Recipe.swift */; };
 		3EB17A9A273589CD001D5416 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB17A99273589CD001D5416 /* Card.swift */; };
 		3EB17AA02736DAF8001D5416 /* ApiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB17A9F2736DAF8001D5416 /* ApiViewModel.swift */; };
+		C193D9FA27425D9700E6F859 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C193D9F827425D9700E6F859 /* Model.xcdatamodeld */; };
 		C1A852802731802200A791CD /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A8527F2731802200A791CD /* AddButtonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		3EB17A9727358986001D5416 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		3EB17A99273589CD001D5416 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		3EB17A9F2736DAF8001D5416 /* ApiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiViewModel.swift; sourceTree = "<group>"; };
+		C193D9F927425D9700E6F859 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C1A8527F2731802200A791CD /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 				3E2F2D662730177F004E9DFA /* RecipesApp.swift */,
 				3E2F2D6A27301782004E9DFA /* Assets.xcassets */,
 				3E2F2D6C27301782004E9DFA /* Preview Content */,
+				C193D9F827425D9700E6F859 /* Model.xcdatamodeld */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				C1A852802731802200A791CD /* AddButtonView.swift in Sources */,
 				3E2F2D7C27301B33004E9DFA /* LibraryScreen.swift in Sources */,
 				3EB17A9827358986001D5416 /* Recipe.swift in Sources */,
+				C193D9FA27425D9700E6F859 /* Model.xcdatamodeld in Sources */,
 				3EB17A9A273589CD001D5416 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +407,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C193D9F827425D9700E6F859 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C193D9F927425D9700E6F859 /* Model.xcdatamodel */,
+			);
+			currentVersion = C193D9F927425D9700E6F859 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3E2F2D5B2730177F004E9DFA /* Project object */;
 }
