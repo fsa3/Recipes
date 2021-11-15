@@ -1,11 +1,10 @@
 //
 //  Persistence.swift
-//  Recipes
+//  CoreDataTest
 //
 //  Created by Tatjana Krämer on 15.11.21.
 //
 
-import Foundation
 import CoreData
 
 struct PersistenceController {
@@ -15,8 +14,8 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-           // let newItem = Item(context: viewContext)
-            //newItem.timestamp = Date()
+            let newRecipe = Recipes(context: viewContext)
+            newRecipe.title = String()
         }
         do {
             try viewContext.save()
@@ -32,7 +31,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "CoreDataModel")
+        container = NSPersistentContainer(name: "CoreDataTest")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -40,6 +39,7 @@ struct PersistenceController {
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+
                 /*
                 Typical reasons for an error here include:
                 * The parent directory does not exist, cannot be created, or disallows writing.
