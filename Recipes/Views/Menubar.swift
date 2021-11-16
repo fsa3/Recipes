@@ -41,17 +41,12 @@ struct Menubar: View {
         TabView {
             ContentView()
                 .tabItem {
-                    Label("Menu", systemImage: "house")
-                }
-            
-            SearchScreenView()
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
+                    Label("My Recipes", systemImage: "house")
                 }
             
             LibraryScreen()
                 .tabItem {
-                    Label("My Recipes", systemImage: "menucard")
+                    Label("Browse Recipes", systemImage: "menucard")
                 }
             AddRecipes()
                 .tabItem {
