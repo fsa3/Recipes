@@ -29,6 +29,7 @@ struct AddRecipes: View {
                 .frame(height: 50)
                 .border(.secondary)
                 .padding()
+          
             TextField("Enter method to prepare food", text: Binding($newRecipeModel.newRecipe.method)!)
                 .onDisappear {
                     try? self.managedObjectContext.save()
@@ -37,6 +38,7 @@ struct AddRecipes: View {
                 .frame(height: 50)
                 .border(.secondary)
                 .padding()
+           
             TextField("Enter ingredients", text: Binding($newRecipeModel.newRecipe.ingredients)!)
                 .onDisappear {
                     try? self.managedObjectContext.save()
@@ -46,8 +48,6 @@ struct AddRecipes: View {
                 .border(.secondary)
                 .padding()
             
-         
-        
             Spacer()
             
             Button(action: {
