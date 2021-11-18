@@ -7,9 +7,18 @@
 
 import SwiftUI
 
+
 struct RecipesView: View {
+   // var recipe: Recipes
     
     @ObservedObject var recipesViewModel: RecipesModel
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Recipes.title, ascending: true)],
+        animation: .default)
+    
+    private var recipes: FetchedResults<Recipes>
+    
     
     var body: some View {
         VStack {
@@ -19,17 +28,26 @@ struct RecipesView: View {
                 .foregroundColor(Color.blue)
             Spacer()
             VStack {
-                Text("First name: \(recipesViewModel.newRecipe.title ?? "")")
+                Text("Title: \(recipesViewModel.newRecipe.title ?? "")")
                     .padding()
-                Text("Last name: \(recipesViewModel.newRecipe.method ?? "")")
+                Text("Method: \(recipesViewModel.newRecipe.method ?? "")")
                     .padding()
-                Text("Town name: \(recipesViewModel.newRecipe.ingredients ?? "")")
+                Text("Ingredients: \(recipesViewModel.newRecipe.ingredients ?? "")")
                     .padding()
             }
             Spacer()
+            //split View to make it easier to call recipes
+           List {
+                ForEach(recipes){ recipe in
+                    RecipesView(recipesViewModel: RecipesModel())
+                }
+           }
         }
+        
     }
 }
+
+
 
 struct RecipesView_Previews: PreviewProvider {
     static var previews: some View {

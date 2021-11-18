@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddRecipes: View {
     @StateObject private var newRecipeModel = RecipesModel()
+    @State private var showingAlert = false
     @Environment(\.managedObjectContext) var managedObjectContext
 
     var body: some View {
@@ -52,9 +53,14 @@ struct AddRecipes: View {
             
             Button(action: {
                 try? self.managedObjectContext.save()
+                showingAlert = true
             }) {
                 Text("Save")
             }
+            .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Saved"), message: Text("New recipes is added to My Recipes"), dismissButton: .default(Text("OK!")))
+                    }
+            
             Spacer()
             
         }
