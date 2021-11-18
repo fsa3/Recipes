@@ -6,9 +6,22 @@
 //
 
 import Foundation
+import CoreData
 
 class RecipesModel: ObservableObject {
     //protocol inherrited
     
-    @Published var newRecipesModel = NewRecipesModel()
+    @Published var newRecipe = Recipes()
+
+    init() {
+        let context = PersistenceController.shared.container.viewContext
+        let request = NSFetchRequest<Recipes>(entityName: "Recipes")
+        request.fetchLimit = 1
+        if let recipe = try? context.fetch(request).first {
+            self.newRecipe = recipe
+        } else {
+            self.newRecipe = Recipes(context: context)
+            try? context.save()
+        }
+    }
 }

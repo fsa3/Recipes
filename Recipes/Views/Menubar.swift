@@ -39,7 +39,7 @@ struct Menubar: View {
             
             
         TabView {
-            ContentView()
+            RecipesView(recipesViewModel: RecipesModel())
                 .tabItem {
                     Label("My Recipes", systemImage: "house")
                 }

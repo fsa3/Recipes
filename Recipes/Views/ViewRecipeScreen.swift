@@ -7,14 +7,32 @@
 
 import SwiftUI
 
-struct ViewRecipeScreen: View {
+struct RecipesView: View {
+    
+    @ObservedObject var recipesViewModel: RecipesModel
+    
     var body: some View {
-        Text("View Recipes")
+        VStack {
+            Text("Last added recipe")
+                .font(.largeTitle)
+                .fontWeight(.medium)
+                .foregroundColor(Color.blue)
+            Spacer()
+            VStack {
+                Text("First name: \(recipesViewModel.newRecipe.title ?? "")")
+                    .padding()
+                Text("Last name: \(recipesViewModel.newRecipe.method ?? "")")
+                    .padding()
+                Text("Town name: \(recipesViewModel.newRecipe.ingredients ?? "")")
+                    .padding()
+            }
+            Spacer()
+        }
     }
 }
 
-struct ViewRecipeScreen_Previews: PreviewProvider {
+struct RecipesView_Previews: PreviewProvider {
     static var previews: some View {
-        ViewRecipeScreen()
+        RecipesView(recipesViewModel: RecipesModel())
     }
 }
