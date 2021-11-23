@@ -41,6 +41,7 @@ struct RecipesView: View {
                 ForEach(recipes){ recipe in
                     RecipesView(recipesViewModel: RecipesModel())
                 }
+
            }
         }
         
