@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct Card: View {
     let recipe: Recipe
@@ -16,7 +17,7 @@ struct Card: View {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(.yellow)
             VStack(alignment: .center, spacing: 4) {
-                Image("image")
+                KFImage(URL(string: recipe.image)!)
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(20)
