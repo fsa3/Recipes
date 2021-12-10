@@ -8,39 +8,50 @@
 import SwiftUI
 
 struct CardView: View {
-    @StateObject var apiViewModel = ApiViewModel()
+    @StateObject var apiViewModel = ApiViewModel(searchQuery: "dinner")
     
+    @State private var apiSearchString: String = ""
+        
     var body: some View {
-        let recipes = apiViewModel.recipesInResult
         NavigationView {
-            ScrollView {
-                LazyVGrid(columns: [
-                    GridItem(.flexible(minimum: 100, maximum: 250), spacing: 12, alignment: .top),
-                    GridItem(.flexible(minimum: 100, maximum: 200), alignment: .top)
-                ], spacing: 16, content: {
-                    ForEach(recipes, id: \.self) { recipe in
-                        Card(recipe: recipe)
+            VStack {
+                TextField( " Search for a recipe", text: $apiSearchString)
+                    .multilineTextAlignment(.leading)
+                    .frame(height: 40)
+                    .border(.secondary)
+                    .padding()
+                    .onSubmit {
+                        apiViewModel.getRecipes(searchQuery: apiSearchString)
                     }
-                }).padding(.horizontal, 5)
-            }
-            .navigationTitle("Recipes")
-        }
-    }
-}
-
-extension UIImageView {
-    func load(urlString : String) {
-        guard let url = URL(string: urlString)else {
-            return
-        }
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
+                
+                let recipes = apiViewModel.recipesInResult
+                if apiViewModel.loading {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+                else if recipes.isEmpty {
+                    Spacer()
+                    Text("No results")
+                    Spacer()
+                }
+                else {
+                    ScrollView {
+                        LazyVGrid(columns: [
+                            GridItem(.flexible(minimum: 100, maximum: 250), spacing: 12, alignment: .top),
+                            GridItem(.flexible(minimum: 100, maximum: 200), alignment: .top)
+                        ], spacing: 16, content: {
+                            ForEach(recipes, id: \.self) { recipe in
+                                NavigationLink(destination: RecipeView(recipe: recipe)) {
+                                    Card(recipe: recipe)
+                                }
+                                .buttonStyle(PlainButtonStyle()) 
+                            }
+                        }).padding(.horizontal, 5)
                     }
                 }
             }
+            .navigationTitle("Browse Recipes")
         }
     }
 }
@@ -50,3 +61,6 @@ struct CardView_Previews: PreviewProvider {
         CardView()
     }
 }
+
+
+

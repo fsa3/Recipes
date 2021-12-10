@@ -24,6 +24,7 @@ struct Card: View {
                 
                 Text(recipe.title)
                     .font(.system(size: 20, weight: .semibold))
+                    .padding(.top)
             }
             .padding()
 //                        .background(.red)

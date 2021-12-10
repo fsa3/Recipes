@@ -20,22 +20,22 @@ struct Menubar: View {
     var body: some View {
         
         VStack {
-            Spacer()
-            VStack {
-                HStack {
-                    TextField( " Search for a recipe", text: $searchstring)
-                        .multilineTextAlignment(.leading)
-                        .frame(height: 40)
-                        .border(.secondary)
-                        .padding()
-                    
-                    Spacer()
-                    HStack {
-                        
-                    }
-                }
-            }
-            .padding()
+//            Spacer()
+//            VStack {
+//                HStack {
+//                    TextField( " Search for a recipe", text: $searchstring)
+//                        .multilineTextAlignment(.leading)
+//                        .frame(height: 40)
+//                        .border(.secondary)
+//                        .padding()
+//
+//                    Spacer()
+//                    HStack {
+//
+//                    }
+//                }
+//            }
+//            .padding()
             
             
         TabView {

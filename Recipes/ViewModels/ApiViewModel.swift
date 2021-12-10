@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct Response: Codable {
     var hits: [Hit]
@@ -24,32 +25,41 @@ struct RecipeApi: Codable {
 
 class ApiViewModel: ObservableObject{
     let session = URLSession(configuration: .default)
-    let timeWebServiceUrl = "https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=6838f9a7&app_key=9522aa691ea95b1892b63f607213286b"
-    var currentTask: URLSessionDataTask? = nil
-    let jsonDecoder = JSONDecoder()
+    let baseUrl = "https://api.edamam.com/api/recipes/v2?type=public&q="
+    let appId = "&app_id=6838f9a7&app_key=9522aa691ea95b1892b63f607213286b"
+    var cancellable: Cancellable? = nil
     
     @Published var recipesInResult: [Recipe] = []
+    @Published var loading = false
     
-    init() {
-        var request = URLRequest(url: URL(string: timeWebServiceUrl)!)
-        request.httpMethod = "GET"
-        currentTask?.cancel()
-        currentTask = session.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
-            print("received response")
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            if let data = data, let time = try? self?.jsonDecoder.decode(Response.self, from: data) {
-                DispatchQueue.main.async {
-                    for hit in time.hits {
-                        self?.recipesInResult.append(Recipe(recipe: hit.recipe))
+    init(searchQuery: String){self.getRecipes(searchQuery: searchQuery)
+    }
+    
+    func getRecipes(searchQuery: String) {
+        self.loading = true
+        let searchQueryEncoded = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+        let recipesUrl = baseUrl + searchQueryEncoded + appId
+        let url = URL(string: recipesUrl)!
+        cancellable?.cancel()
+        cancellable = session
+            .dataTaskPublisher(for: url)
+            .tryMap() { element -> Data in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                    httpResponse.statusCode == 200 else {
+                        throw URLError(.badServerResponse)
                     }
+                return element.data
                 }
-            } else {
-                print("Something went wrong. Try again.")
-            }
-        })
-        currentTask?.resume()
+            .decode(type: Response.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
+                print ("Received completion: \($0).") },
+                  receiveValue: { [weak self] response in
+                self?.loading = false
+                self?.recipesInResult.removeAll()
+                for hit in response.hits {
+                    self?.recipesInResult.append(Recipe(recipe: hit.recipe))
+                }
+            })
     }
 }

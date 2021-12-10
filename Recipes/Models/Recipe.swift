@@ -25,5 +25,5 @@ struct Recipe: Decodable, Hashable {
         self.image = image
     }
     
-    static var example = Recipe(title: "test", methood: "test", image: "image")
+    static var example = Recipe(title: "test", methood: "test", image: "https://www.edamam.com/web-img/e42/e42f9119813e890af34c259785ae1cfb.jpg")
 }

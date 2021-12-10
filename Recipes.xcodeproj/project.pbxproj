@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E2264C02763B47800F77624 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3E2264BF2763B47800F77624 /* Kingfisher */; };
+		3E2264C22763C87E00F77624 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2264C12763C87E00F77624 /* RecipeView.swift */; };
 		3E2F2D672730177F004E9DFA /* RecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2D662730177F004E9DFA /* RecipesApp.swift */; };
 		3E2F2D692730177F004E9DFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2D682730177F004E9DFA /* ContentView.swift */; };
 		3E2F2D6B27301782004E9DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F2D6A27301782004E9DFA /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E2264C12763C87E00F77624 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		3E2F2D632730177F004E9DFA /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2F2D662730177F004E9DFA /* RecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesApp.swift; sourceTree = "<group>"; };
 		3E2F2D682730177F004E9DFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				3E2F2D8127301B7F004E9DFA /* ViewRecipeScreen.swift */,
 				3EB17A99273589CD001D5416 /* Card.swift */,
 				C1F24EFA2742674A0075FAF4 /* AddRecipes.swift */,
+				3E2264C12763C87E00F77624 /* RecipeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				3EB17A9827358986001D5416 /* Recipe.swift in Sources */,
 				C193D9FA27425D9700E6F859 /* DataModel.xcdatamodeld in Sources */,
 				3EB17A9A273589CD001D5416 /* Card.swift in Sources */,
+				3E2264C22763C87E00F77624 /* RecipeView.swift in Sources */,
 				C1F24EFB2742674A0075FAF4 /* AddRecipes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Recipes/Preview Content\"";
-				DEVELOPMENT_TEAM = 9TF437LVMW;
+				DEVELOPMENT_TEAM = 9C5428M4RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -374,7 +378,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sdu.Landmarks.Recipes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdu.Recipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -390,7 +394,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Recipes/Preview Content\"";
-				DEVELOPMENT_TEAM = 9TF437LVMW;
+				DEVELOPMENT_TEAM = 9C5428M4RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -403,7 +407,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sdu.Landmarks.Recipes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdu.Recipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
