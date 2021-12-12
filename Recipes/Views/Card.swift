@@ -15,7 +15,7 @@ struct Card: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(.yellow)
+                .fill(Color(red: 0.75, green: 0.75, blue: 0.38))
             VStack(alignment: .center, spacing: 4) {
                 KFImage(URL(string: recipe.image)!)
                     .resizable()

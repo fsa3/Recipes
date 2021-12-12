@@ -20,6 +20,9 @@ struct Hit: Codable {
 struct RecipeApi: Codable {
     var label: String
     var image: String
+    var dishType: [String]
+    var ingredients: [Ingredient]
+    var url: String
 }
 
 
