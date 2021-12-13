@@ -11,31 +11,30 @@ struct AddRecipes: View {
     @StateObject private var newRecipeModel = RecipesModel()
     @State private var showingAlert = false
     @Environment(\.managedObjectContext) var managedObjectContext
-   // private var recipes: FetchedResults<Recipes>
-
-
+    
+    
     var body: some View {
         VStack {
             Text("New Recipes")
                 .font(.title)
-
+            
             Text("Enter you data")
                 .font(.title2)
                 .foregroundColor(.gray)
-                Spacer()
+            Spacer()
             
             TextField("Enter title for recipe", text: Binding($newRecipeModel.newRecipe.title)!)
                 .multilineTextAlignment(.center)
                 .frame(height: 50)
                 .border(.secondary)
                 .padding()
-          
+            
             TextField("Enter method to prepare food", text: Binding($newRecipeModel.newRecipe.method)!)
                 .multilineTextAlignment(.center)
                 .frame(height: 50)
                 .border(.secondary)
                 .padding()
-           
+            
             TextField("Enter ingredients", text: Binding($newRecipeModel.newRecipe.ingredients)!)
                 .multilineTextAlignment(.center)
                 .frame(height: 50)
@@ -49,8 +48,8 @@ struct AddRecipes: View {
                 
             }
             .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Saved"), message: Text("New recipes is added to My Recipes"), dismissButton: .default(Text("OK!")))
-                    }
+                Alert(title: Text("Saved"), message: Text("New recipes is added to My Recipes"), dismissButton: .default(Text("OK!")))
+            }
             
             Spacer()
             
@@ -60,7 +59,7 @@ struct AddRecipes: View {
     func saveRecipe(){
         _ = Recipes(context: managedObjectContext)
         try? self.managedObjectContext.save()
-
+        
         do {
             try managedObjectContext.save()
             showingAlert = true
@@ -71,22 +70,6 @@ struct AddRecipes: View {
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
-    
-  /*  private func deleteRecipe(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { recipes[$0] }.forEach(managedObjectContext.delete)
-
-            do {
-                try managedObjectContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-    */
     
     
 }

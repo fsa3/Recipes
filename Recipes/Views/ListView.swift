@@ -1,15 +1,13 @@
 //
-//  ViewRecipeScreen.swift
+//  ListView.swift
 //  Recipes
 //
-//  Created by Fannar Steinn Aðalsteinsson on 1.11.2021.
+//  Created by Tatjana Krämer on 13.12.21.
 //
 
 import SwiftUI
 
-
-struct RecipesView: View {
-   // var recipe: Recipes
+struct ListView: View {
     
     @ObservedObject var recipesViewModel: RecipesModel
     
@@ -21,11 +19,11 @@ struct RecipesView: View {
     
     
     var body: some View {
+        Text("Last added recipes")
+            .font(.largeTitle)
+            .fontWeight(.medium)
+            .foregroundColor(Color.blue)
         VStack {
-            Text("Last added recipe")
-                .font(.largeTitle)
-                .fontWeight(.medium)
-                .foregroundColor(Color.blue)
             Spacer()
             VStack {
                 Text("Title: \(recipesViewModel.newRecipe.title ?? "")")
@@ -36,13 +34,7 @@ struct RecipesView: View {
                     .padding()
             }
             Spacer()
-            //split View to make it easier to call recipes
-           List {
-                ForEach(recipes){ recipe in
-                    RecipesView(recipesViewModel: RecipesModel())
-                }
-
-           }
+            
         }
         
     }
@@ -50,8 +42,8 @@ struct RecipesView: View {
 
 
 
-struct RecipesView_Previews: PreviewProvider {
+struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipesView(recipesViewModel: RecipesModel())
+        ListView(recipesViewModel: RecipesModel())
     }
 }
