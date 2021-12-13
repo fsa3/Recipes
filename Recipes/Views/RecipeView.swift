@@ -19,7 +19,6 @@ struct RecipeView: View {
                     .overlay {
                         TextOverlay(recipe: recipe)
                     }
-//                Spacer()
                 VStack {
                     ForEach(recipe.ingredients, id: \.self) { ingredient in
                         IngredientView(ingredient: ingredient)

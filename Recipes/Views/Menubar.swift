@@ -14,14 +14,10 @@ struct Menubar: View {
     init() {
         UITabBar.appearance().backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
     }
-    
-    @State private var searchstring: String = ""
-    
+        
     var body: some View {
         
         VStack {
-            
-            
             
             TabView {
                 RecipesView(recipesViewModel: RecipesModel())
