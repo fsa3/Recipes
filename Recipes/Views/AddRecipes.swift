@@ -24,22 +24,22 @@ struct AddRecipes: View {
             Spacer()
             
             TextField("Enter title for recipe", text: Binding($newRecipeModel.newRecipe.title)!)
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(.leading)
                 .frame(height: 50)
-                .border(.secondary)
                 .padding()
-            
-            TextField("Enter method to prepare food", text: Binding($newRecipeModel.newRecipe.method)!)
-                .multilineTextAlignment(.center)
-                .frame(height: 50)
-                .border(.secondary)
-                .padding()
+                .textFieldStyle(.roundedBorder)
             
             TextField("Enter ingredients", text: Binding($newRecipeModel.newRecipe.ingredients)!)
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(.leading)
                 .frame(height: 50)
-                .border(.secondary)
                 .padding()
+                .textFieldStyle(.roundedBorder)
+            
+            TextField("Enter method to prepare food", text: Binding($newRecipeModel.newRecipe.method)!)
+                .multilineTextAlignment(.leading)
+                .frame(height: 50)
+                .padding()
+                .textFieldStyle(.roundedBorder)
             
             Spacer()
             
@@ -70,6 +70,9 @@ struct AddRecipes: View {
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
+    
+    //clear cache
+    
     
     
 }

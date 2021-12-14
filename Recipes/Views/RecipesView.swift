@@ -22,15 +22,33 @@ struct RecipesView: View {
     
     
     var body: some View {
-        List {
-            ForEach(recipes){ recipe in
-                ListView(recipesViewModel: RecipesModel())
-            }
-            .onDelete(perform: deleteRecipe)
+        let listEntry = checkData()
+        
+        if listEntry == false {
+            Text("No results")
+            
         }
+        else{
+            
+            NavigationView {
+                List {
+                    ForEach(recipes){ recipe in
+                        
+                        NavigationLink("Title: \(recipesViewModel.newRecipe.title ?? "")"
+                                       , destination: DetailedRecipesView(recipesViewModel: RecipesModel()))
+                        
+                    }
+                    .onDelete(perform: deleteRecipe)
+                    
+                    
+                }
+                
+            }
+        }
+        
     }
     
-    
+    //delete recipes by swiping right
     private func deleteRecipe(offsets: IndexSet) {
         withAnimation {
             offsets.map { recipes[$0] }.forEach(viewContext.delete)
@@ -45,6 +63,23 @@ struct RecipesView: View {
             }
         }
     }
+    
+    //chekc if there are entries
+    private func checkData() -> Bool
+    {
+        if recipes.count == 0
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
+    
+    
+    
+    
     
 }
 

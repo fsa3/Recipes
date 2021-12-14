@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListView: View {
+struct DetailedRecipesView: View {
     
     @ObservedObject var recipesViewModel: RecipesModel
     
@@ -19,10 +19,7 @@ struct ListView: View {
     
     
     var body: some View {
-        Text("Last added recipes")
-            .font(.largeTitle)
-            .fontWeight(.medium)
-            .foregroundColor(Color.blue)
+
         VStack {
             Spacer()
             VStack {
@@ -34,6 +31,7 @@ struct ListView: View {
                     .padding()
             }
             Spacer()
+      
             
         }
         
@@ -42,8 +40,8 @@ struct ListView: View {
 
 
 
-struct ListView_Previews: PreviewProvider {
+struct DetailedRecipesView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(recipesViewModel: RecipesModel())
+        RecipesView(recipesViewModel: RecipesModel())
     }
 }

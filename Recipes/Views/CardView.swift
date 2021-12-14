@@ -18,8 +18,9 @@ struct CardView: View {
                 TextField( " Search for a recipe", text: $apiSearchString)
                     .multilineTextAlignment(.leading)
                     .frame(height: 40)
-                    .border(.secondary)
+                    //.border(.secondary)
                     .padding()
+                    .textFieldStyle(.roundedBorder)
                     .onSubmit {
                         apiViewModel.getRecipes(searchQuery: apiSearchString)
                     }
