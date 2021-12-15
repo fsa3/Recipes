@@ -15,43 +15,52 @@ struct AddRecipes: View {
     
     var body: some View {
         VStack {
-            Text("New Recipes")
-                .font(.title)
             
-            Text("Enter you data")
+            Text("New Recipe")
+                .font(.title.bold())
+            
+            Spacer()
+            
+            Text("Enter a title, ingrediants and a method")
                 .font(.title2)
                 .foregroundColor(.gray)
-            Spacer()
-            
-            TextField("Enter title for recipe", text: Binding($newRecipeModel.newRecipe.title)!)
-                .multilineTextAlignment(.leading)
-                .frame(height: 50)
-                .padding()
-                .textFieldStyle(.roundedBorder)
-            
-            TextField("Enter ingredients", text: Binding($newRecipeModel.newRecipe.ingredients)!)
-                .multilineTextAlignment(.leading)
-                .frame(height: 50)
-                .padding()
-                .textFieldStyle(.roundedBorder)
-            
-            TextField("Enter method to prepare food", text: Binding($newRecipeModel.newRecipe.method)!)
-                .multilineTextAlignment(.leading)
-                .frame(height: 50)
-                .padding()
-                .textFieldStyle(.roundedBorder)
-            
-            Spacer()
-            
-            Button(action:saveRecipe) {
-                Text("Save")
+            HStack{
+                Spacer()
+                
+                VStack{
+                    TextField("Enter title for recipe", text: Binding($newRecipeModel.newRecipe.title)!)
+                        .multilineTextAlignment(.leading)
+                        .frame(height: 30)
+                        .padding()
+                        .textFieldStyle(.roundedBorder)
+                    
+                    TextField("Enter ingredients", text: Binding($newRecipeModel.newRecipe.ingredients)!)
+                        .multilineTextAlignment(.leading)
+                        .frame(height: 30)
+                        .padding()
+                        .textFieldStyle(.roundedBorder)
+                    
+                    TextField("Enter method to prepare food", text: Binding($newRecipeModel.newRecipe.method)!)
+                        .multilineTextAlignment(.leading)
+                        .frame(height: 30)
+                        .padding()
+                        .textFieldStyle(.roundedBorder)
+                    
+                    
+                    Button(action:saveRecipe) {
+                        Text("Save")
+                        
+                        
+                    }
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Saved"), message: Text("New recipes is added to My Recipes"), dismissButton: .default(Text("OK!")))
+                    }
+                    
+                    Spacer()
+                    
+                }
                 
             }
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Saved"), message: Text("New recipes is added to My Recipes"), dismissButton: .default(Text("OK!")))
-            }
-            
-            Spacer()
             
         }
     }
