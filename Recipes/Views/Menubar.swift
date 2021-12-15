@@ -11,11 +11,11 @@
 import SwiftUI
 
 struct Menubar: View {
-   
+    
     init() {
         UITabBar.appearance().backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
     }
-        
+    
     var body: some View {
         
         VStack {
@@ -29,14 +29,6 @@ struct Menubar: View {
                 CardView()
                     .tabItem {
                         Label("Browse Recipes", systemImage: "menucard")
-                    }
-                
-             //   AddRecipes(title, ingredients, method in
-              //             self.addRecipes(title: title, ingredients: ingredients, method: method)
-                          // self.isPresented = false
-             //   )
-                    .tabItem {
-                        Label("New Recipe", systemImage: "plus")
                     }
             }
         }

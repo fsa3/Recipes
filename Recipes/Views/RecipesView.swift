@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
 
 
 struct RecipesView: View {
     
-  //  @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.managedObjectContext) var managedObjectContext
 
-    
     @ObservedObject var recipesViewModel: RecipesModel
     
     @FetchRequest(
@@ -21,6 +20,7 @@ struct RecipesView: View {
         animation: .default)
     
     private var recipes: FetchedResults<Recipes>
+    
     @State var isPresented = false
 
     
@@ -35,11 +35,9 @@ struct RecipesView: View {
             
             NavigationView {
                 List {
-                    ForEach(recipes, id: \.title){ recipe in
-                        
+                    ForEach(recipes){ recipe in
                         NavigationLink("Title: \(recipesViewModel.newRecipe.title ?? "empty")"
                                        , destination: DetailedRecipesView(recipesViewModel: RecipesModel()))
-                        
                     }
                     .onDelete(perform: deleteRecipe)
                     
@@ -85,6 +83,8 @@ struct RecipesView: View {
         var count = 0
         if recipes.count == 0
         {
+            count = recipes.count
+            print(count)
             return false
         }
         else
@@ -100,7 +100,7 @@ struct RecipesView: View {
         
       let newRecipe = Recipes(context: managedObjectContext)
 
-      newRecipe.title = title
+      newRecipe.title = "Test"
       newRecipe.ingredients = ingredients
       newRecipe.method = method
         
@@ -108,15 +108,6 @@ struct RecipesView: View {
 
       saveRecipe()
     }
-
-
-   /* func saveContext() {
-      do {
-        try managedObjectContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
-    }*/
     
     func saveRecipe(){
         _ = Recipes(context: managedObjectContext)
