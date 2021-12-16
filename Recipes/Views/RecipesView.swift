@@ -25,18 +25,12 @@ struct RecipesView: View {
 
     
     var body: some View {
-    //    let listEntry = checkData()
-        
-    //    if listEntry == false {
-     //       Text("No results")
-            
-      //  }
-      //  else{
+
             
             NavigationView {
                 List {
-                    ForEach(recipes){ recipe in
-                        NavigationLink("Title: \(recipesViewModel.newRecipe.title ?? "empty")"
+                    ForEach(recipes, id: \.title){ recipe in
+                         NavigationLink("Title: \(recipesViewModel.newRecipe.title ?? "empty")"
                                        , destination: DetailedRecipesView(recipesViewModel: RecipesModel()))
                     }
                     .onDelete(perform: deleteRecipe)
@@ -57,7 +51,6 @@ struct RecipesView: View {
                 )
                 
             }
-        //}
         
     }
     
@@ -68,6 +61,8 @@ struct RecipesView: View {
             
             do {
                 try managedObjectContext.save()
+               // print(managedObjectContext)
+                checkData()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -98,29 +93,25 @@ struct RecipesView: View {
     
     func addRecipe(title: String, method: String, ingredients: String) {
         
-      let newRecipe = Recipes(context: managedObjectContext)
+      let newRecip = Recipes(context: managedObjectContext)
 
-      newRecipe.title = "Test"
-      newRecipe.ingredients = ingredients
-      newRecipe.method = method
+      newRecip.title = title
+      newRecip.ingredients = ingredients
+      newRecip.method = method
         
-        print(newRecipe.title ?? "some" )
+        print(newRecip.title ?? "some" )
+        checkData()
 
-      saveRecipe()
+      saveContext()
     }
+
     
-    func saveRecipe(){
-        _ = Recipes(context: managedObjectContext)
-        try? self.managedObjectContext.save()
-        
-        do {
-            try managedObjectContext.save()
-        //    showingAlert = true
-        } catch {
-           
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
+    func saveContext() {
+      do {
+        try managedObjectContext.save()
+      } catch {
+        print("Error saving managed object context: \(error)")
+      }
     }
     
     

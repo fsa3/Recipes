@@ -9,9 +9,9 @@ import SwiftUI
 import CoreData
 
 struct AddRecipes: View {
-    static let DefaultMovieTitle = "-T-"
-    static let DefaultMovieIngred = "-I-"
-    static let DefaultMovieMethod = "-I-"
+    static let DefaultTitle = "-T-"
+    static let DefaultIngred = "-I-"
+    static let DefaultMethod = "-I-"
     
     @State var title = ""
     @State var ingredients = ""
@@ -21,14 +21,14 @@ struct AddRecipes: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @State private var showingAlert = false
-    @StateObject private var newRecipeModel = RecipesModel()
+  //  @StateObject private var newRecipeModel = RecipesModel()
 
     
     var body: some View {
       NavigationView {
         Form {
           Section(header: Text("Title")) {
-            TextField("Title", text: Binding($newRecipeModel.newRecipe.title)!)
+            TextField("Title", text: $title)
           }
           Section(header: Text("Ingredients")) {
             TextField("Ingredients", text: $ingredients)
@@ -53,9 +53,9 @@ struct AddRecipes: View {
 
     private func addMoveAction() {
       onComplete(
-        title.isEmpty ? AddRecipes.DefaultMovieTitle : title,
-        ingredients.isEmpty ? AddRecipes.DefaultMovieTitle : ingredients,
-        method.isEmpty ? AddRecipes.DefaultMovieTitle : method)
+        title.isEmpty ? AddRecipes.DefaultTitle : title,
+        ingredients.isEmpty ? AddRecipes.DefaultIngred : ingredients,
+        method.isEmpty ? AddRecipes.DefaultMethod : method)
     }
 
 }

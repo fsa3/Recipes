@@ -17,7 +17,6 @@ class RecipesModel: ObservableObject {
     init() {
         let context = PersistenceController.shared.container.viewContext
         let request = NSFetchRequest<Recipes>(entityName: "Recipes")
-        request.fetchLimit = 1
         if let recipe = try? context.fetch(request).first {
             self.newRecipe = recipe
         } else {
@@ -26,3 +25,4 @@ class RecipesModel: ObservableObject {
         }
     }
 }
+
