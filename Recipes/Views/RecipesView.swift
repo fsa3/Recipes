@@ -29,7 +29,7 @@ struct RecipesView: View {
             
             NavigationView {
                 List {
-                    ForEach(recipes, id: \.title){ recipe in
+                    ForEach(recipes){ recipe in
                          NavigationLink("Title: \(recipesViewModel.newRecipe.title ?? "empty")"
                                        , destination: DetailedRecipesView(recipesViewModel: RecipesModel()))
                     }
