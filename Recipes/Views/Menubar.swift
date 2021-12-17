@@ -22,6 +22,7 @@ struct Menubar: View {
             
             TabView {
                 RecipesView(recipesViewModel: RecipesModel())
+               // RecipesView(recipesViewModel: RecipesModel())
                     .tabItem {
                         Label("My Recipes", systemImage: "house")
                     }

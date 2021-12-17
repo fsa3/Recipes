@@ -9,9 +9,9 @@ import SwiftUI
 import CoreData
 
 struct AddRecipes: View {
-    static let DefaultTitle = "-T-"
-    static let DefaultIngred = "-I-"
-    static let DefaultMethod = "-I-"
+    static let DefaultTitle = "-I-"
+    static let DefaultIngred = "-J-"
+    static let DefaultMethod = "-K-"
     
     @State var title = ""
     @State var ingredients = ""
@@ -19,7 +19,7 @@ struct AddRecipes: View {
     
     let onComplete: (String, String, String) -> Void
     
-    @Environment(\.managedObjectContext) var managedObjectContext
+  //  @Environment(\.managedObjectContext) var managedObjectContext
     @State private var showingAlert = false
   //  @StateObject private var newRecipeModel = RecipesModel()
 
