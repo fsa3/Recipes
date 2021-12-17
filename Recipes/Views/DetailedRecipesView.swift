@@ -11,18 +11,27 @@ struct DetailedRecipesView: View {
     
     @ObservedObject var recipesViewModel: RecipesModel
     
-    @FetchRequest(
+  /*  @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Recipes.title, ascending: true)],
-        animation: .default)
+        animation: .default)*/
     
-    private var recipes: FetchedResults<Recipes>
+   // private var recipes: FetchedResults<Recipes>
     
+    let recipes : Recipes
     
     var body: some View {
 
         VStack {
             Spacer()
             VStack {
+                Text("Title: \(recipes.title ?? "")")
+                     .padding()
+                Text("Title: \(recipes.ingredients ?? "")")
+                     .padding()
+                Text("Title: \(recipes.method ?? "")")
+                     .padding()
+                
+                
                 Text("Title: \(recipesViewModel.newRecipe.title ?? "")")
                     .padding()
                 Text("Method: \(recipesViewModel.newRecipe.method ?? "")")

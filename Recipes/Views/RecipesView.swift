@@ -8,6 +8,7 @@ import SwiftUI
 
 // swiftlint:disable multiple_closures_with_trailing_closure
 struct RecipesView: View {
+ 
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: Recipes.entity(),sortDescriptors: [
         NSSortDescriptor(keyPath: \Recipes.title, ascending: true)])
@@ -24,6 +25,10 @@ struct RecipesView: View {
             List {
                 ForEach(recipes, id: \.title) {
                     Row(recipe: $0)
+                    NavigationLink("Text",
+                                   destination: DetailedRecipesView(recipesViewModel: recipesViewModel,
+                                                                    recipes: recipesViewModel.newRecipe))
+                                 //  DetailedRecipesView(recipesViewModel: RecipesModel()))
                     
                 }
                 .onDelete(perform: deleteRecipe)
@@ -44,7 +49,7 @@ struct RecipesView: View {
                     self.isPresented = false
                 }
             }
-            .navigationBarTitle(Text("Fave Flicks"))
+            .navigationBarTitle(Text("My Recipes"))
             .navigationBarItems(trailing:
                                     Button(action: { self.isPresented.toggle() }) {
                 Image(systemName: "plus")

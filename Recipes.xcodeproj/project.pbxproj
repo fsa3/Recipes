@@ -115,12 +115,12 @@
 			isa = PBXGroup;
 			children = (
 				3E2F2D7D27301B3C004E9DFA /* Menubar.swift */,
-				3E2F2D7F27301B4E004E9DFA /* CardView.swift */,
 				3E2F2D8127301B7F004E9DFA /* RecipesView.swift */,
 				C1C75969276C7DFA006AADEE /* Row.swift */,
 				C10C7F9C2768BE3B00D5B000 /* DetailedRecipesView.swift */,
-				3EB17A99273589CD001D5416 /* Card.swift */,
 				C1F24EFA2742674A0075FAF4 /* AddRecipes.swift */,
+				3E2F2D7F27301B4E004E9DFA /* CardView.swift */,
+				3EB17A99273589CD001D5416 /* Card.swift */,
 				3E2264C12763C87E00F77624 /* WebRecipeView.swift */,
 				3E5012C92763F4E500990482 /* IngredientView.swift */,
 				3E5012CB2763FDAC00990482 /* WebpageView.swift */,
