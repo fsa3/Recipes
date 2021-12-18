@@ -12,15 +12,8 @@ struct Row: View {
 
 
   var body: some View {
-    VStack(alignment: .leading) {
-      recipe.title.map(Text.init)
-        .font(.title)
-      HStack {
-        recipe.ingredients.map(Text.init)
-          .font(.caption)
-        Spacer()
-      }
-    }
+      NavigationLink(" \(recipe.title ?? "")",
+                     destination: DetailedRecipesView(recipesViewModel: RecipesModel(), recipe:recipe))
   }
 }
 

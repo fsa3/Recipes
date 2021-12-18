@@ -17,29 +17,18 @@ struct RecipesView: View {
     var recipes: FetchedResults<Recipes>
     
     @State var isPresented = false
+    
     @ObservedObject var recipesViewModel: RecipesModel
-
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(recipes, id: \.title) {
                     Row(recipe: $0)
-                    NavigationLink("Text",
-                                   destination: DetailedRecipesView(recipesViewModel: recipesViewModel,
-                                                                    recipes: recipesViewModel.newRecipe))
-                                 //  DetailedRecipesView(recipesViewModel: RecipesModel()))
                     
                 }
                 .onDelete(perform: deleteRecipe)
                 
-                
-                /*
-                 List {
-                 ForEach(recipes){ recipe in
-                 NavigationLink("Title: \(recipesViewModel.newRecipe.title ?? "empty")"
-                 , destination: DetailedRecipesView(recipesViewModel: RecipesModel()))
-                 }*/
                 
                 
             }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct DetailedRecipesView: View {
     
@@ -17,20 +18,41 @@ struct DetailedRecipesView: View {
     
    // private var recipes: FetchedResults<Recipes>
     
-    let recipes : Recipes
+    let recipe : Recipes
     
     var body: some View {
-
-        VStack {
+        
+        NavigationView {
+          Form {
+            Section(header: Text("Title")) {
+                Text(" \(recipe.title ?? "")")
+            }
+            Section(header: Text("Ingredients")) {
+                Text(" \(recipe.ingredients ?? "")")
+            }
+              Section(header: Text("Method")) {
+                  Text(" \(recipe.method ?? "")")
+              }
+           /* Section {
+                Button(action : addMoveAction ){
+                Text("Add Recipes")
+              }
+            }*/
+          }
+          .navigationBarTitle(Text(" \(recipe.title ?? "")"), displayMode: .inline)
+        }
+        
+        
+    /*    VStack {
             Spacer()
             VStack {
-                Text("Title: \(recipes.title ?? "")")
+                Text("Title: \(recipe.title ?? "")")
                      .padding()
-                Text("Title: \(recipes.ingredients ?? "")")
+                Text("Title: \(recipe.ingredients ?? "")")
                      .padding()
-                Text("Title: \(recipes.method ?? "")")
+                Text("Title: \(recipe.method ?? "")")
                      .padding()
-                
+                //TextField("Enter title for recipe", text: Binding($newRecipeModel.newRecipe.title)!)
                 
                 Text("Title: \(recipesViewModel.newRecipe.title ?? "")")
                     .padding()
@@ -42,7 +64,7 @@ struct DetailedRecipesView: View {
             Spacer()
       
             
-        }
+        }*/
         
     }
 }
