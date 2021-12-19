@@ -19,13 +19,11 @@ struct Menubar: View {
     var body: some View {
         
         VStack {
-            
             TabView {
                 RecipesView(recipesViewModel: RecipesModel())
                     .tabItem {
                         Label("My Recipes", systemImage: "house")
                     }
-                
                 CardView()
                     .tabItem {
                         Label("Browse Recipes", systemImage: "menucard")
@@ -34,8 +32,6 @@ struct Menubar: View {
         }
         
     }
-    
-    
     
 }
 

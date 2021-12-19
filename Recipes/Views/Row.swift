@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct Row: View {
-  let recipe: Recipes
-
-
-  var body: some View {
-      NavigationLink(" \(recipe.title ?? "")",
-                     destination: DetailedRecipesView(recipesViewModel: RecipesModel(), recipe:recipe))
-  }
+    let recipe: Recipes
+    
+    
+    var body: some View {
+        NavigationLink(" \(recipe.title ?? "")",
+                       destination: DetailedRecipesView(recipesViewModel: RecipesModel(), recipe:recipe))
+    }
 }
 

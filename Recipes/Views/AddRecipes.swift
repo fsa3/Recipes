@@ -21,36 +21,36 @@ struct AddRecipes: View {
     
     
     var body: some View {
-      NavigationView {
-        Form {
-          Section(header: Text("Title")) {
-            TextField("Title", text: $title)
-          }
-          Section(header: Text("Ingredients")) {
-            TextField("Ingredients", text: $ingredients)
-          }
-            Section(header: Text("Method")) {
-              TextField("Method", text: $method)
+        NavigationView {
+            Form {
+                Section(header: Text("Title")) {
+                    TextField("Give your recipe a title", text: $title)
+                }
+                Section(header: Text("Ingredients")) {
+                    TextField("Add some ingredients", text: $ingredients)
+                }
+                Section(header: Text("Method")) {
+                    TextField("How does it need to be cooked?", text: $method)
+                }
+                Section {
+                    Button(action : addMoveAction ){
+                        Text("Add Recipe")
+                    }
+                }
             }
-          Section {
-              Button(action : addMoveAction ){
-              Text("Add Recipes")
-            }
-          }
+            .navigationBarTitle(Text("Add Recipe"), displayMode: .inline)
         }
-        .navigationBarTitle(Text("Add Recipe"), displayMode: .inline)
-      }
     }
     
     
     private func addMoveAction() {
-      onComplete(
-        title.isEmpty ? AddRecipes.DefaultTitle : title,
-        ingredients.isEmpty ? AddRecipes.DefaultIngred : ingredients,
-        method.isEmpty ? AddRecipes.DefaultMethod : method)
+        onComplete(
+            title.isEmpty ? AddRecipes.DefaultTitle : title,
+            ingredients.isEmpty ? AddRecipes.DefaultIngred : ingredients,
+            method.isEmpty ? AddRecipes.DefaultMethod : method)
     }
-
-}
     
+}
+
 
 
