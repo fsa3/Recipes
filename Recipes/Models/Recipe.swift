@@ -21,7 +21,7 @@ struct Recipe: Hashable {
         self.title = recipe.label
         methood = ""
         image = recipe.image
-        dishType = recipe.dishType[0]
+        dishType = recipe.dishType?[0]
         ingredients = recipe.ingredients
         webRecipe = true
         url = recipe.url

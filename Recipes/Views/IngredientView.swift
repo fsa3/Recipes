@@ -20,6 +20,13 @@ struct IngredientView: View {
                     .cornerRadius(5)
                     .padding(.leading)
             }
+            else {
+                Image("ingredient-placeholder")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .cornerRadius(5)
+                    .padding(.leading)
+            }
             Text(ingredient.text)
             Spacer()
         }
